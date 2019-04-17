@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve -o",
     "build": "ng build",
     "test": "jest --coverage",
     "lint": "ng lint",
@@ -45,6 +45,18 @@
     "typescript": "~3.2.2"
   },
   "jest": {
+    "collectCoverageFrom": [
+      "./src/app/**/*.*",
+      "!./src/app/*.module.ts"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    },
     "preset": "jest-preset-angular",
     "roots": [
       "<rootDir>/src/"
