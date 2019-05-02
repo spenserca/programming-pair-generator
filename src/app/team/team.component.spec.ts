@@ -1,6 +1,7 @@
 import { TeamComponent } from './team.component';
 import { PairService } from '../services/pair.service';
 import { Pair } from '../models/pair';
+import { of } from 'rxjs';
 
 jest.mock('../services/pair.service');
 
@@ -13,7 +14,7 @@ describe('TeamComponent', () => {
     beforeEach(() => {
       mockPairService = new PairService();
       expectedPairs = [{ teammateOne: 'one', teammateTwo: 'two', pairName: 'name' }];
-      mockPairService.getPairs = jest.fn(() => expectedPairs);
+      mockPairService.getPairs = jest.fn(() => of(expectedPairs));
 
       underTest = new TeamComponent(mockPairService);
 

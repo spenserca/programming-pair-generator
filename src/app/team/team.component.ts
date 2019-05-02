@@ -13,7 +13,10 @@ export class TeamComponent implements OnInit {
   constructor(private pairService: PairService) { }
 
   ngOnInit() {
-    this.$pairs = this.pairService.getPairs();
+    this.pairService.getPairs()
+      .subscribe((data) => {
+        this.$pairs = data;
+      });
   }
 
 }
