@@ -18,5 +18,4 @@ export class TeamComponent implements OnInit {
         this.$pairs = data;
       });
   }
-
 }
