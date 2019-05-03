@@ -1,20 +1,28 @@
 import { TeamComponent } from './team.component';
-import { PairService } from '../services/pair.service';
+import { TeamService } from '../services/team.service';
 import { Pair } from '../models/pair';
 import { of } from 'rxjs';
+import { Team } from '../models/team';
 
-jest.mock('../services/pair.service');
+jest.mock('../services/team.service');
 
 describe('TeamComponent', () => {
   describe('ngOnInit', () => {
-    let expectedPairs: Pair[];
-    let mockPairService: PairService;
+    let expectedTeam: Team;
+    let mockPairService: TeamService;
     let underTest: TeamComponent;
 
     beforeEach(() => {
-      mockPairService = new PairService();
-      expectedPairs = [{ teammateOne: 'one', teammateTwo: 'two', pairName: 'name' }];
-      mockPairService.getPairs = jest.fn(() => of(expectedPairs));
+      mockPairService = new TeamService();
+      expectedTeam = {
+        pairs: [
+          { teammateOne: 'one', teammateTwo: 'two', pairNames: ['first'] },
+          { teammateOne: 'one', teammateTwo: 'three', pairNames: ['second'] }
+        ],
+        teamName: 'test team',
+        teammates: ['one', 'two', 'three']
+      };
+      mockPairService.getTeam = jest.fn(() => of(expectedTeam));
 
       underTest = new TeamComponent(mockPairService);
 
@@ -22,11 +30,11 @@ describe('TeamComponent', () => {
     });
 
     test('calls pairService.getPairs', () => {
-      expect(mockPairService.getPairs).toHaveBeenCalled();
+      expect(mockPairService.getTeam).toHaveBeenCalled();
     });
 
     test('sets $pairs to value returned from getPairs', () => {
-      expect(underTest.$pairs).toEqual(expectedPairs);
+      expect(underTest.$team).toEqual(expectedTeam);
     });
   });
 });

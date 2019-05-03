@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PairService } from '../services/pair.service';
+import { TeamService } from '../services/team.service';
 import { Pair } from '../models/pair';
+import { Team } from '../models/team';
 
 @Component({
   selector: 'app-team',
@@ -8,14 +9,14 @@ import { Pair } from '../models/pair';
   styleUrls: ['./team.component.css']
 })
 export class TeamComponent implements OnInit {
-  $pairs: Pair[];
+  $team: Team;
 
-  constructor(private pairService: PairService) { }
+  constructor(private teamService: TeamService) { }
 
   ngOnInit() {
-    this.pairService.getPairs()
+    this.teamService.getTeam()
       .subscribe((data) => {
-        this.$pairs = data;
+        this.$team = data;
       });
   }
 }

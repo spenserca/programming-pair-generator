@@ -4,7 +4,12 @@
     <div>
       <p>TeammateOne: {{pair.teammateOne}}</p>
       <p>TeammateTwo: {{pair.teammateTwo}}</p>
-      <p>PairName: {{pair.pairName}}</p>
+      <div>
+        <p>PairNames</p>
+        <li *ngFor="let pairName of pair.pairNames">
+          <p>{{pairName}}</p>
+        </li>
+      </div>
     </div>
   </li>
 </ul>

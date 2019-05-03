@@ -1,5 +1,5 @@
 export class Pair {
   teammateOne: string;
   teammateTwo: string;
-  pairName: string;
+  pairNames: string[];
 }

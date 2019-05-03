@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Pair } from '../models/pair';
-import { PAIRS } from '../models/mock-pairs';
 import { Observable, of } from 'rxjs';
+import { Team } from '../models/team';
+import { TEAM } from '../models/mock-team';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PairService {
+export class TeamService {
 
   constructor() { }
 
-  getPairs(): Observable<Pair[]> {
-    return of(PAIRS);
+  getTeam(): Observable<Team> {
+    return of(TEAM);
   }
 }
