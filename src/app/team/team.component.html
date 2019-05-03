@@ -1,14 +1,16 @@
 <ul>
   <h1>Pairs</h1>
-  <li *ngFor="let pair of $pairs">
+  <li *ngFor="let pair of $team.pairs">
     <div>
       <p>TeammateOne: {{pair.teammateOne}}</p>
       <p>TeammateTwo: {{pair.teammateTwo}}</p>
       <div>
         <p>PairNames</p>
-        <li *ngFor="let pairName of pair.pairNames">
-          <p>{{pairName}}</p>
-        </li>
+        <ul>
+          <li *ngFor="let pairName of pair.pairNames">
+            <p>{{pairName}}</p>
+          </li>
+        </ul>
       </div>
     </div>
   </li>
