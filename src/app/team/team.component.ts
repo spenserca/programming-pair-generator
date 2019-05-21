@@ -14,7 +14,7 @@ export class TeamComponent implements OnInit {
   constructor(private teamService: TeamService) { }
 
   ngOnInit() {
-    this.teamService.getTeam()
+    this.teamService.getTeam(9)
       .subscribe((data) => {
         this.$team = data;
         this.teamMemberDisplayText = data.teammates.sort().join(", ");

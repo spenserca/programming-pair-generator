@@ -15,10 +15,10 @@ describe('TeamComponent', () => {
     beforeEach(() => {
       mockPairService = new TeamService();
       expectedTeam = {
-        pairs: [
-          { teammateOne: 'one', teammateTwo: 'two', pairNames: ['first'] },
-          { teammateOne: 'one', teammateTwo: 'three', pairNames: ['second'] }
-        ],
+        // pairs: [
+        //   { teammateOne: 'one', teammateTwo: 'two', pairNames: ['first'] },
+        //   { teammateOne: 'one', teammateTwo: 'three', pairNames: ['second'] }
+        // ],
         teamName: 'test team',
         teammates: ['one', 'two', 'three']
       };

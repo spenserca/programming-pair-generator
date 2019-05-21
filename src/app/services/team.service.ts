@@ -11,7 +11,7 @@ export class TeamService {
 
   constructor() { }
 
-  getTeam(): Observable<Team> {
+  getTeam(teamId: number): Observable<Team> {
     return of(TEAM);
   }
 }
