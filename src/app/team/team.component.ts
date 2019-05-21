@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { TeamService } from '../services/team.service';
-import { Pair } from '../models/pair';
 import { Team } from '../models/team';
 
 @Component({
@@ -10,6 +9,7 @@ import { Team } from '../models/team';
 })
 export class TeamComponent implements OnInit {
   $team: Team;
+  teamMemberDisplayText: string;
 
   constructor(private teamService: TeamService) { }
 
@@ -17,6 +17,7 @@ export class TeamComponent implements OnInit {
     this.teamService.getTeam()
       .subscribe((data) => {
         this.$team = data;
+        this.teamMemberDisplayText = data.teammates.sort().join(", ");
       });
   }
 }
